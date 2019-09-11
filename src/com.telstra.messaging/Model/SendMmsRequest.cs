@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = com.telstra.messaging.Client.SwaggerDateConverter;
+using com.telstra.messaging.Serialization;
 
 namespace com.telstra.messaging.Model
 {
@@ -111,6 +112,7 @@ namespace com.telstra.messaging.Model
         /// </summary>
         /// <value>The subject that will be used in an MMS message.</value>
         [DataMember(Name="subject", EmitDefaultValue=false)]
+        [JsonConverter(typeof(XmlEncodingSerializer))]
         public string Subject { get; set; }
 
         /// <summary>
